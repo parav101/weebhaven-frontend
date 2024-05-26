@@ -78,11 +78,11 @@ function ManageOrders() {
                       <p>{order.User.username}</p>
                     </td>
                     <td className="p-3">
-                      <p>{Moment(order.createdAt).format("d MMMM YYYY")}</p>
+                      <p>{Moment(order.createdAt).format("DD MMMM YYYY")}</p>
                       <p className="dark:text-gray-600">{Moment(order.createdAt).format("dddd")}</p>
                     </td>
                     <td className="p-3">
-                      <p>{Moment(order.deleviryDate).add(10, 'd').format("d MMMM YYYY")}</p>
+                      <p>{Moment(order.deleviryDate).add(10, 'd').format("DD MMMM YYYY")}</p>
                       <p className="dark:text-gray-600">{Moment(order.createdAt).format("dddd")}</p>
                     </td>
                     <td className="p-3 text-right">

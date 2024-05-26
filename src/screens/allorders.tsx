@@ -50,7 +50,7 @@ function AllOrders() {
                     Order Id: <span className="text-gray-600 font-medium">#{order.id}</span>
                   </p>
                   <p className="font-semibold text-base leading-7 text-black mt-4">
-                    Order Payment : <span className="text-gray-600 font-medium"> {Moment(order.createdAt).format("d MMMM YYYY")}</span>
+                    Order Payment : <span className="text-gray-600 font-medium"> {Moment(order.createdAt).format("DD MMMM YYYY")}</span>
                   </p>
                 </div>
                 <button className="rounded-full py-3 px-7 font-semibold text-sm leading-7 text-white font-mono bg-gray-400 max-lg:mt-5 shadow-sm shadow-transparent transition-all duration-500 hover:bg-gray-700 hover:shadow-indigo-400">Track Your Order</button>
@@ -95,7 +95,7 @@ function AllOrders() {
                             <div className="col-span-5 lg:col-span-2 flex items-center max-lg:mt-3">
                               <div className="flex gap-3 lg:block">
                                 <p className="font-medium text-sm whitespace-nowrap leading-6 text-black">Expected Delivery Time</p>
-                                <p className="font-medium text-base whitespace-nowrap leading-7 lg:mt-3 text-gray-500">{Moment(order.createdAt).format("d MMMM YYYY")}</p>
+                                <p className="font-medium text-base whitespace-nowrap leading-7 lg:mt-3 text-gray-500">{Moment(order.createdAt).format("DD MMMM YYYY")}</p>
                               </div>
                             </div>
                           </div>

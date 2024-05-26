@@ -150,7 +150,7 @@ export function DialogSizes(props: any) {
                       Order Info
                     </Typography>
                     <p className="mt-2">
-                      OrderId:{order!.id} <br /> totalItems:{order!.totalItems} <br />Price: {order!.total}<br />Status:{order!.status}<br />OrderDate:{Moment(order.createdAt).format("d MMMM YYYY")}<br />
+                      OrderId:{order!.id} <br /> totalItems:{order!.totalItems} <br />Price: {order!.total}<br />Status:{order!.status}<br />OrderDate:{Moment(order.createdAt).format("DD MMMM YYYY")}<br />
                     </p>
                   </div>
                 </div>

@@ -100,13 +100,13 @@ function AddProduct() {
       files.map((file)=>{
         formdata.append("file", file);
       })
-      const res = await axiosApiInstance.post("http://localhost:3001/add-images", formdata);
+      const res = await axiosApiInstance.post(`${import.meta.env.VITE_APP_API_URL}/add-images`, formdata);
       let data = [...productEntries]
       data.map((entry,index)=>{
         entry.ProductEntryImage = res.data.urls[index]
       })
       setNewProductEntries(data)
-       await axiosApiInstance.post("http://localhost:3001/add-product", {
+       await axiosApiInstance.post(`${import.meta.env.VITE_APP_API_URL}/add-product`, {
         productName: product.productName,
         productDesc: product.productDesc,
         category: product.category,

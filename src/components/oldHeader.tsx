@@ -12,7 +12,7 @@ function Header() {
   const [code, setCode] = useState(0);
   async function checkAdmin() {
     try {
-      const res = await axiosApiInstance.get("http://localhost:3001/verify-admin");
+      const res = await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/verify-admin`);
       setCode(res.status);
     } catch (error: any) {
       setCode(error.response.status);

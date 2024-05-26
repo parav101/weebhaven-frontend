@@ -23,7 +23,7 @@ function ManageOrders() {
   >();
   async function getOrders() {
     try {
-      let response = await axiosApiInstance.get(`http://localhost:3001/view-allorders`);
+      let response = await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/view-allorders`);
       setNewOrders(response.data.allOrders);
     } catch (error) {}
   }

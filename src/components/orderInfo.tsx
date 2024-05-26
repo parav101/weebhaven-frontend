@@ -48,7 +48,7 @@ export function DialogSizes(props: any) {
   async function getOrder() {
     try {
       if (props.id !== "") {
-        let response = await axiosApiInstance.get(`http://localhost:3001/view-order/${props.id}`);
+        let response = await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/view-order/${props.id}`);
         setNewOrder(response.data.order);
       }
     } catch (error) {}

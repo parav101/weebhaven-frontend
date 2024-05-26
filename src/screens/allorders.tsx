@@ -22,7 +22,7 @@ function AllOrders() {
   }[]>();
   async function getOrders() {
     try {
-      let response = await axiosApiInstance.get(`http://localhost:3001/view-orders/${user.id}`,{
+      let response = await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/view-orders/${user.id}`,{
     });
       // console.log(response.data)
       setNewOrders(response.data.allOrders);

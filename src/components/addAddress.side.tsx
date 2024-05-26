@@ -28,7 +28,7 @@ export function Add_AddressSideBar(props: any) {
     event.preventDefault();
     props.setOpen(false)
     try {
-       await axiosApiInstance.post("http://localhost:3001/add-address", {
+       await axiosApiInstance.post(`${import.meta.env.VITE_APP_API_URL}/add-address`, {
         userId:user.id,name: address.name, company: address.company, phone: address.phone, address: address.address, city: address.city, country: address.country, state: address.state, pincode: address.pincode, isDefault: address.isDefault
       });
       window.location.reload();

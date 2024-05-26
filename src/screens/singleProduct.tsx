@@ -63,7 +63,7 @@ function ProductDetails() {
 
   async function getNewProduct() {
     try {
-      let response = await axios.get(`http://localhost:3001/view-product/${searchNameQuery}`);
+      let response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/view-product/${searchNameQuery}`);
       setNewProduct(response.data.product);
       setActiveEntry(response.data.product.ProductEntries[0])
       setSizes(response.data.sizesAvl);

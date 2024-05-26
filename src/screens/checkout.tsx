@@ -18,7 +18,7 @@ function Checkout() {
   const coupon = searchParams.get("coupon") || "";
   async function getAddresses() {
     try {
-      let response = await axiosApiInstance.get(`http://localhost:3001/view-addresses/${user.id}`, {});
+      let response = await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/view-addresses/${user.id}`, {});
       // console.log(response.data)
       setAddresses(response.data.addresses);
     } catch (error) {}
@@ -40,7 +40,7 @@ function Checkout() {
   }
   async function handleCheckout() {
     try {
-      let response = await axiosApiInstance.post("http://localhost:3001/add-order", {
+      let response = await axiosApiInstance.post(`${import.meta.env.VITE_APP_API_URL}/add-order`, {
         userId: user.id,
         totalItems: cart.length,
         status: "Dispatched",

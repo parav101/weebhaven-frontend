@@ -1,16 +1,18 @@
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import animationData from "../components/empty.json";
 import LabeledValuesSlider from "../components/slider";
+import Lottie from "lottie-react";
 function Shop() {
   const navigate = useNavigate();
   const [value, setValue] = useState(40); //using it for price value filter
-  const [searchParams,] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const searchNameQuery = searchParams.get("name") || "";
   const searchCategoryQuery = searchParams.get("category") || "";
   let sizeRange = ["S", "M", "L", "XL"];
   let availability = ["in stock", "out of stock"];
-  let category = ["Shirt", "Hoodie", "Figurine","Poster"];
+  let category = ["Shirt", "Hoodie", "Figurine", "Poster"];
   let [sizeFilter, setSizeFilter] = useState<string[]>([]);
   let [availabilityFilter, setAvailabilityFilter] = useState<string[]>([]);
   let [categoryFilter, setCategoryFilter] = useState<string[]>([]);
@@ -25,35 +27,35 @@ function Shop() {
       createdAt: string;
       updatedAt: string;
       ProductEntries: {
-        id:string;
+        id: string;
         productImage: string;
         productPrice: number;
         discountedPrice: number;
-        Size:any
-        Colour:any
+        Size: any;
+        Colour: any;
       }[];
     }[]
   >([]);
-  
+
   let [backupProducts, setBackupProducts] = useState<
-  {
-    id: string;
-    productName: string;
-    productDesc: string;
-    orderIndex: number;
-    category: string;
-    isFeatured: boolean;
-    createdAt: string;
-    updatedAt: string;
-    ProductEntries: {
-      id:string;
-      productImage: string;
-      productPrice: number;
-      discountedPrice: number;
-      Size:any
-      Colour:any
-    }[];
-  }[]
+    {
+      id: string;
+      productName: string;
+      productDesc: string;
+      orderIndex: number;
+      category: string;
+      isFeatured: boolean;
+      createdAt: string;
+      updatedAt: string;
+      ProductEntries: {
+        id: string;
+        productImage: string;
+        productPrice: number;
+        discountedPrice: number;
+        Size: any;
+        Colour: any;
+      }[];
+    }[]
   >([]);
   const [dropdowns, setDropdowns] = useState([
     { key: "size", isOpen: false },
@@ -64,7 +66,7 @@ function Shop() {
 
   async function getProducts() {
     try {
-      let response = await axios.get("http://localhost:3001/view-products");
+      let response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/view-products`);
       setNewProducts(response.data.products);
     } catch (error) {
       console.log(error);
@@ -132,23 +134,24 @@ function Shop() {
       backupProducts = [...backupProducts.filter((item) => sizeFilter.some((size) => item.ProductEntries.some((entry: any) => entry.Size.size_value == size)))];
     }
     if (value !== 0) {
-      backupProducts = [...backupProducts.filter((item) =>  item.ProductEntries.some((entry: any) => entry.discountedPrice <= value))];
+      backupProducts = [...backupProducts.filter((item) => item.ProductEntries.some((entry: any) => entry.discountedPrice <= value))];
     }
     if (availabilityFilter.length) {
-      backupProducts = [...backupProducts.filter((item) => availabilityFilter.some((availability) => (availability == "in stock" ? item.ProductEntries.some((entry: any) => entry.qty > 0) : item.ProductEntries.some((entry: any) => entry.qty == 0) || !item.ProductEntries.length  )))];
+      backupProducts = [...backupProducts.filter((item) => availabilityFilter.some((availability) => (availability == "in stock" ? item.ProductEntries.some((entry: any) => entry.qty > 0) : item.ProductEntries.some((entry: any) => entry.qty == 0) || !item.ProductEntries.length)))];
     }
     if (categoryFilter.length) {
-      backupProducts = [...backupProducts.filter((item) => categoryFilter.some((category) =>  (item.category == category)))];
+      backupProducts = [...backupProducts.filter((item) => categoryFilter.some((category) => item.category == category))];
     }
     setBackupProducts([...backupProducts]);
-  }, [sizeFilter, availabilityFilter,value,products,categoryFilter]);
+  }, [sizeFilter, availabilityFilter, value, products, categoryFilter,products, searchNameQuery, searchCategoryQuery]);
 
   return (
     <>
       <div className=" bg-gray-100/80 md:overflow-x-auto  ">
         <div className="md:block flex text-center p-8">
-          <h1 className="mb-4 text-3xl font-semibold text-gray-900 md:text-4xl ">Availabile Products</h1>
+          <h1 className="mb-4 text-3xl font-semibold text-gray-900 md:text-4xl ">{backupProducts.length === 0 ? (<span></span>):(<span>Availabile Products</span>)}</h1>
         </div>
+        
         <div className="flex-row md:flex   mx-auto  w-full">
           <div className="  md:h-screen md:max-w-[300px]  me-5 md:w-full lg:sticky   ">
             <ul className=" p-4  ps-8 text-gray-500">
@@ -239,6 +242,16 @@ function Shop() {
               </div>
             </ul>
           </div>
+          {backupProducts.length === 0 ? (
+              <div className="max-w-[350px] mx-auto flex justify-center">
+                <div className="text-center space-y-4">
+                  <Lottie animationData={animationData} />
+                  <h1 className="text-2xl font-bold">No Products Found</h1>
+                  <p>You can try diffrent product...</p>
+                 
+                </div>
+              </div>
+            ) : null}
           <section id="Projects" className="ms-4 gap-x-2 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center relative  animate-slideIn mt-1 mb-2">
             {backupProducts.map((product) => {
               return (

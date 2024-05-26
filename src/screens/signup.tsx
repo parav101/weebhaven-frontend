@@ -37,7 +37,7 @@ function SignUp() {
     event.preventDefault();
     setIsLoading(true)
     try {
-      let response = await axios.post("http://localhost:3001/register-user", {
+      let response = await axios.post(`${import.meta.env.VITE_APP_API_URL}/register-user`, {
         email: user.email,
         password: user.password,
         username: user.username,

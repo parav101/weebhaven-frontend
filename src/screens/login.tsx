@@ -35,7 +35,7 @@ function Login() {
     event.preventDefault();
     setIsLoading(true);
     try {
-      let response = await axios.post("http://localhost:3001/login", {
+      let response = await axios.post(`${import.meta.env.VITE_APP_API_URL}/login`, {
         email: user.email,
         password: user.password,
       });

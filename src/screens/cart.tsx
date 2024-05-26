@@ -40,7 +40,7 @@ function Cart() {
 
   async function getCoupon() {
     try {
-      let response = await axiosApiInstance.get(`http://localhost:3001/view-coupon`);
+      let response = await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/view-coupon`);
       setcoupon(response.data.singleCoupon);
       setAllCoupons(response.data.allCoupons);
     } catch (error) {
@@ -53,7 +53,7 @@ function Cart() {
   async function handleCoupon(coupon: string) {
     setCouponError("");
     try {
-      let response = await axiosApiInstance.get(`http://localhost:3001/view-coupon/${coupon}`);
+      let response = await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/view-coupon/${coupon}`);
       if (response.data.singleCoupon) {
         if (response.data.singleCoupon.minAmount > total) setCouponError(`Purchase should be above $${response.data.singleCoupon.minAmount}.00 to redeem this coupon`);
         else {

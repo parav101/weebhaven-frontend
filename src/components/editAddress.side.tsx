@@ -28,7 +28,7 @@ export function Edit_AddressSideBar(props: any) {
     event.preventDefault();
     props.setOpen(false);
     try {
-       await axiosApiInstance.post("http://localhost:3001/edit-address", {
+       await axiosApiInstance.post(`${import.meta.env.VITE_APP_API_URL}/edit-address`, {
         id: props.currentAddress.id,
         userId: user.id,
         name: props.currentAddress.name,

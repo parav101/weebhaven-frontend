@@ -33,7 +33,7 @@ function Home() {
 
   async function getProducts() {
     try {
-      let response = await axios.get("http://localhost:3001/view-featured-products");
+      let response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/view-featured-products`);
       setNewfeaturedProducts(response.data.products);
     } catch (error) {
       console.log(error);

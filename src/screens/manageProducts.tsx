@@ -29,7 +29,7 @@ function ManageProducts() {
   >([]);
   async function getProducts() {
     try {
-      let response = await axios.get("http://localhost:3001/view-products");
+      let response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/view-products`);
       setNewProducts(response.data.products);
     } catch (error) {
       console.log(error);
@@ -37,7 +37,7 @@ function ManageProducts() {
   }
   async function handleFeatured(flag: boolean, productName: string) {
     try {
-      await axiosApiInstance.post("http://localhost:3001/update-productInfo", {
+      await axiosApiInstance.post(`${import.meta.env.VITE_APP_API_URL}/update-productInfo`, {
         oldProductName: productName,
         isFeatured: flag,
       });
@@ -53,7 +53,7 @@ function ManageProducts() {
 
   async function handleDelete(id:string) {
     try {
-      await axiosApiInstance.get(`http://localhost:3001/delete-product/${id}`);
+      await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/delete-product/${id}`);
       getProducts();
     } catch (error) {
       console.log(error);

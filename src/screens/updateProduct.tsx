@@ -59,7 +59,7 @@ function UpdateProdcut() {
   );
   async function getProducts() {
     try {
-      let response = await axios.get(`http://localhost:3001/view-product/${state.name}`);
+      let response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/view-product/${state.name}`);
       setoldProductName(response.data.product.productName)
       setOldLength(response.data.product.ProductEntries.length)
       let data = [...response.data.product.ProductEntries,];
@@ -123,7 +123,7 @@ function UpdateProdcut() {
       if (target.files[0]) {
         const formdata = new FormData();
         formdata.append("file", target.files[0]);
-        const res = await axiosApiInstance.post("http://localhost:3001/add-image", formdata);
+        const res = await axiosApiInstance.post(`${import.meta.env.VITE_APP_API_URL}/add-image`, formdata);
         let entry: any = [...product.ProductEntries];
         entry[index].productImage = res.data.url;
         setNewProduct((currentProduct) => ({
@@ -168,7 +168,7 @@ function UpdateProdcut() {
   async function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault();
     const newProductEntries = product.ProductEntries.splice(oldLength ,(product.ProductEntries.length - oldLength ))
-       await axiosApiInstance.post("http://localhost:3001/update-product", {
+       await axiosApiInstance.post(`${import.meta.env.VITE_APP_API_URL}/update-product`, {
         oldProductName:oldProductName,
         productName: product.productName,
         productDesc: product.productDesc,

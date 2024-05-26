@@ -2258,7 +2258,7 @@ export function SelectCustomAnimation(props:any) {
       // const [value, setValue] = useState("react");
       async function handleStatus(status:string) {
         try {
-          await axiosApiInstance.put("http://localhost:3001/update-order", {
+          await axiosApiInstance.put(`${import.meta.env.VITE_APP_API_URL}/update-order`, {
             orderId:props.orderId,
             status:status
           });

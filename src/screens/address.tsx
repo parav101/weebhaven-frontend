@@ -31,14 +31,14 @@ function Address() {
   }
   async function getAddresses() {
     try {
-      let response = await axiosApiInstance.get(`http://localhost:3001/view-addresses/${user.id}`, {});
+      let response = await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/view-addresses/${user.id}`, {});
       setAddresses(response.data.addresses);
     } catch (error) {}
   }
 
   async function handleRemove(id: string) {
     try {
-      await axiosApiInstance.get(`http://localhost:3001/remove-address/${id}`, {});
+      await axiosApiInstance.get(`${import.meta.env.VITE_APP_API_URL}/remove-address/${id}`, {});
       window.location.reload();
     } catch (error) {}
   }

@@ -78,8 +78,8 @@ function Checkout() {
                       {addresses?.length === 0 ? (
                         <div className="bg-gray-50/70  border-[1px] w-[400px] h-[150px]  border-gray-700 px-4 py-8 md:px-8 rounded-md">
                           <p className="font-bold text-sm mb-3">No address</p>
-                          <div className="text-sm text-gray-800">
-                            <p>
+                          <div className="text-sm text-blue-600 hover:underline cursor-pointer">
+                            <p onClick={()=>navigate('/account-address')}>
                               Please add new Address <br /> <br /> <br />
                             </p>
                           </div>

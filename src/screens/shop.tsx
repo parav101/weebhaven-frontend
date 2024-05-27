@@ -257,7 +257,7 @@ function Shop() {
               return (
                 <div className="relative mx-[30px] flex w-full h-[400px] max-w-[260px] flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md transition-all duration-200 ease-in-out hover:shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
                   <div className="relative flex h-[250px] overflow-hidden rounded-xl ">
-                    <img className="object-cover  h-full w-full" src={product.ProductEntries[0].productImage} alt={product.ProductEntries[0].productImage} onClick={() => navigate(`/product/?name=${product.productName}`)} />
+                    <img className="object-cover  h-full w-full" src={import.meta.env.VITE_APP_API_URL+"/images/"+product.ProductEntries[0].productImage} alt={product.ProductEntries[0].productImage} onClick={() => navigate(`/product/?name=${product.productName}`)} />
                     <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{product.ProductEntries.length === 0 ? "Out of Stock" : "In Stock"}</span>
                   </div>
                   <div className="mt-4 px-5 pb-5">

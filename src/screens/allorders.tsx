@@ -61,7 +61,7 @@ function AllOrders() {
                   return (
                     <div className="flex flex-col lg:flex-row items-center py-6 border-b border-gray-500/30 gap-6  mb-4 w-full">
                       <div className="img-box max-lg:w-full">
-                        <img src={items.productImage} alt="Premium Watch image" className="aspect-1 object-cover w-full sm:max-w-[140px] h-full sm:max-h-[140px]" />
+                        <img src={import.meta.env.VITE_APP_API_URL+"/images/"+items.productImage} alt="Premium Watch image" className="aspect-1 object-cover w-full sm:max-w-[140px] h-full sm:max-h-[140px]" />
                       </div>
                       <div className="flex flex-row items-center w-full ">
                         <div className="grid grid-cols-1 lg:grid-cols-2 w-full">

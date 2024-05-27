@@ -154,7 +154,7 @@ function Cart() {
                       return (
                         <tr className="  ">
                           <td className="p-2 flex">
-                            <img src={item.productImage} className="w-16 md:w-32 object-contain h-16 md:h-32 max-w-full max-h-full" alt={item.productName} />
+                            <img src={import.meta.env.VITE_APP_API_URL+"/images/"+item.productImage} className="w-16 md:w-32 object-contain h-16 md:h-32 max-w-full max-h-full" alt={item.productName} />
                             <div className="relative">
                               <h3 className=" text-gray-700">{item.productName} </h3>
                               <p className="mt-1 text-gray-600 text-sm">

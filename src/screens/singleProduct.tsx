@@ -123,7 +123,7 @@ function ProductDetails() {
             <div className="grid items-start grid-cols-1 lg:grid-cols-2 gap-10">
               <div className="w-full lg:sticky top-0 text-center">
                 <div className="lg:h-[600px]">
-                  <img src={activeEntry?.productImage} alt={product.id} className="lg:w-11/12 w-full h-full rounded-xl object-cover object-top hover:scale-105 transition-all" />
+                  <img src={import.meta.env.VITE_APP_API_URL+"/images/"+activeEntry?.productImage} alt={product.id} className="lg:w-11/12 w-full h-full rounded-xl object-cover object-top hover:scale-105 transition-all" />
                 </div>
               </div>
               <div>
@@ -167,10 +167,10 @@ function ProductDetails() {
                 <hr className="my-8 border-0" />
                 {activeColor ? (
                   <div className="flex flex-wrap gap-4 relative  animate-slideIn">
-                    <button type="button" onClick={() => handleBuy(product.id, activeEntry!.productImage, product.productName, activeEntry!.productPrice, 1, activeEntry!.discountedPrice)} className="min-w-[200px] px-4 py-3 bg-gray-800 hover:bg-gray-900 text-white text-sm font-bold rounded">
+                    <button type="button" onClick={() => handleBuy(product.id, activeEntry!.productImage, product.productName, activeEntry!.productPrice, 1, activeEntry!.discountedPrice)} className="min-w-full md:min-w-[200px] px-4 py-3 bg-gray-800 hover:bg-gray-900 text-white text-sm font-bold rounded">
                       Buy now
                     </button>
-                    <button type="button" onClick={() => handleClick(product.id, activeEntry!.productImage, product.productName, activeEntry!.productPrice, 1, activeEntry!.discountedPrice)} className="min-w-[200px] px-4 py-2.5 border border-gray-800 bg-transparent hover:bg-gray-50 text-gray-800 text-sm font-bold rounded">
+                    <button type="button" onClick={() => handleClick(product.id, activeEntry!.productImage, product.productName, activeEntry!.productPrice, 1, activeEntry!.discountedPrice)} className="min-w-full md:min-w-[200px] px-4 py-2.5 border border-gray-800 bg-transparent hover:bg-gray-50 text-gray-800 text-sm font-bold rounded">
                       Add to cart
                     </button>
                   </div>

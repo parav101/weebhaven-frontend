@@ -144,7 +144,7 @@ function Checkout() {
                     </div>
                   </div>
                 </div>
-                <div className="md:flex flex-wrap gap-4 mt-8 hidden lg:block  ">
+                <div className="md:flex flex-wrap gap-6 mt-8 hidden ">
                   <button type="button" onClick={() => navigate(-1)} className="min-w-[100px] md:mx-0 mx-auto px-6 py-3.5 text-sm bg-gray-200 text-[#333] rounded-md hover:bg-gray-200">
                     Back
                   </button>
@@ -166,7 +166,7 @@ function Checkout() {
                       return (
                         <div className="grid  sm:grid-cols-3  items-start">
                           <div className="max-w-[150px] max-h-[100px] px-1 py-1 flex rounded-md ">
-                            <img src={item.productImage} className="w-full h-full  object-contain rounded-xl " />
+                            <img src={import.meta.env.VITE_APP_API_URL+"/images/"+item.productImage} className="w-full h-full  object-contain rounded-xl " />
                             <span className="relative  inline-flex bottom-[10px] left-[-10px] ">
                               <span className=" text-blue font-mono font-semibold relative inline-flex  h-6 w-6 cursor-pointer items-center justify-center rounded-full border bg-gray-500/60 uppercase tracking-wide shadow-lg text-white">{item.quantity}</span>
                             </span>

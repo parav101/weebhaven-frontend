@@ -115,7 +115,7 @@ export function DialogSizes(props: any) {
    }
   }
 
-  const TABLE_HEAD = ["Name", "imagelink", "price", "category", "Price", "size", "quantity", "colour"];
+  const TABLE_HEAD = ["Name", "image", "price", "category", "Price", "size", "quantity", "colour"];
 
   const [size, setSize] = React.useState(null);
 

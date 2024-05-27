@@ -76,14 +76,16 @@ function Home() {
                             </svg>
                           </button>
                         </div>
-                        <img src={product.ProductEntries[0].productImage} alt={product.productName} className=" object-cover w-[250px] h-[250px] rounded-2xl " />
+                        <img src={import.meta.env.VITE_APP_API_URL+"/images/"+product.ProductEntries[0].productImage} alt={product.productName} className=" object-cover w-[250px] h-[250px] rounded-2xl " />
                       </div>
                       <div className="flex-auto justify-evenly" onClick={() => navigate(`/product/?name=${product.productName}`)}>
                         <div className=" justify-center inline-flex ">
                           <h2 className="text-lg mr-auto cursor-pointer text-gray-700 hover:text-gray-500 truncate ">{product.productName}</h2>
                           <span className="inline-flex items-center bg-transparent text-gray-800 text-xs border-2 border-black px-2 ml-3 rounded-lg uppercase ">{product.category}</span>
                         </div>
-                        <div className="text-xl text-black font-semibold mt-1">${product.ProductEntries[0].discountedPrice}.00</div>
+                        <div className="text-lg text-black  mt-1">${product.ProductEntries[0].productPrice.toFixed(2)}</div>
+                        <div className="text-xl text-black font-semibold mt-1"><span className="text-lg font-thin line-through pe-2">${product.ProductEntries[0].productPrice.toFixed(2)}</span>${product.ProductEntries[0].discountedPrice.toFixed(2)}</div>
+                        
                         <div className="lg:flex justify-center gap-8 py-4  text-sm text-gray-600">
                           <p className="  text-gray-600 text-sm">
                             Size: <span className="text-xs font-semibold">{product.ProductEntries[0].Size.size_value}</span>

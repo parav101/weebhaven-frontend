@@ -87,7 +87,7 @@ function Checkout() {
                       ) : null}
                       {addresses?.map((address,index) => {
                         return (
-                          <div onClick={()=>activeButton(index,address.id)} key={index} className={`bg-gray-50/70  border-[1px] w-[400px] h-[150px]  border-gray-700 px-4 py-8 md:px-8 rounded-md ${active == index ? ("shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"):(null)} `}>
+                          <div onClick={()=>activeButton(index,address.id)} key={index} className={`bg-gray-50/70 md:mx-0 mx-auto border-[1px] w-[300px] md:w-[400px] h-[150px]  border-gray-700 px-4 py-8 md:px-8 rounded-md ${active == index ? ("shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"):(null)} `}>
                             {address.isDefault ? <p className="font-bold text-sm mb-3">Default address</p> : <p className="font-bold text-sm mb-3">Alternate address</p>}
 
                             <div className="text-sm text-gray-800">
@@ -144,11 +144,11 @@ function Checkout() {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-4 mt-8">
-                  <button type="button" onClick={() => navigate(-1)} className="min-w-[150px] px-6 py-3.5 text-sm bg-gray-100 text-[#333] rounded-md hover:bg-gray-200">
+                <div className="md:flex flex-wrap gap-4 mt-8 hidden lg:block  ">
+                  <button type="button" onClick={() => navigate(-1)} className="min-w-[100px] md:mx-0 mx-auto px-6 py-3.5 text-sm bg-gray-200 text-[#333] rounded-md hover:bg-gray-200">
                     Back
                   </button>
-                  {addressId ? ( <button onClick={handleCheckout} type="button" className="min-w-[150px] px-6 py-3.5 text-sm bg-[#333] text-white rounded-md hover:bg-[#111]">
+                  {addressId ? ( <button onClick={handleCheckout} type="button" className="min-w-[150px] md:mx-0 mx-auto px-6 py-3.5 text-sm bg-[#333] text-white rounded-md hover:bg-[#111]">
                     Confirm payment ${state ? (total - state.discount).toFixed(2) : total.toFixed(2)}
                   </button>) : ( <button  type="button" className="min-w-[150px] px-6 py-3.5 text-sm bg-[#333] text-white rounded-md hover:bg-[#111]">
                     Select Address
@@ -209,6 +209,17 @@ function Checkout() {
                       Total <span className="ml-auto">${state ? (total - state.discount).toFixed(2) : total.toFixed(2)} USD</span>
                     </h2>
                   </div>
+                  <div className="flex flex-wrap gap-4 mt-8 md:hidden   ">
+                  <button type="button" onClick={() => navigate(-1)} className="min-w-[100px] md:mx-0 mx-auto px-6 py-3.5 text-sm bg-gray-200 text-[#333] rounded-md hover:bg-gray-200">
+                    Back
+                  </button>
+                  {addressId ? ( <button onClick={handleCheckout} type="button" className="min-w-[150px] md:mx-0 mx-auto px-6 py-3.5 text-sm bg-[#333] text-white rounded-md hover:bg-[#111]">
+                    Confirm payment ${state ? (total - state.discount).toFixed(2) : total.toFixed(2)}
+                  </button>) : ( <button  type="button" className="min-w-[150px] px-6 py-3.5 text-sm bg-[#333] text-white rounded-md hover:bg-[#111]">
+                    Select Address
+                  </button>)}
+                 
+                </div>
                 </div>
               </div>
             </div>

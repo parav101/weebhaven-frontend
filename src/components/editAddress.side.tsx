@@ -54,10 +54,10 @@ export function Edit_AddressSideBar(props: any) {
           <div className="fixed top-0 right-0 bottom-0 left-0 bg-inherit z-10 cursor-pointer" onClick={() => props.setOpen(false)} />
         </div>
       ) : null}
-      <div className={`top-0 right-0 bottom-0  fixed w-full max-w-screen-sm bg-hero_pattern bg-gray-300 z-40 rounded-md  ease-in-out duration-500 ${props.open ? "translate-x-0 " : "translate-x-full"}`}>
+      <div className={`top-0 right-0 bottom-0  fixed w-full md:max-w-screen-sm max-w-[370px] bg-hero_pattern bg-gray-300 z-40 rounded-md  ease-in-out duration-500 ${props.open ? "translate-x-0 " : "translate-x-full"}`}>
         {props.open ? (
           <>
-            <div className="flex-col absolute right-0 inset-y-0 p-8   w-full max-w-screen-sm bg-hero_pattern bg-gray-300 z-40 rounded-md ">
+            <div className="flex-col absolute right-0 inset-y-0 p-8   w-full md:max-w-screen-sm max-w-[370px] bg-hero_pattern bg-gray-300 z-40 rounded-md ">
               <h1 className="text-2xl font-bold">Edit address</h1>
               <p className="text-sm pt-4">Please fill in the infomation below:</p>
               <form className="font-sans  text-sm  mx-auto my-2  pt-4 pb-8" onSubmit={handleSubmit}>
@@ -85,12 +85,12 @@ export function Edit_AddressSideBar(props: any) {
                     Address
                   </label>
                 </div>
-                <div className="relative mb-3 flex">
-                  <input type="text" name="city" value={props.currentAddress.city} onChange={handleChange} id="city" className="relative text-gray-dark border-2 peer block   appearance-none rounded-md  border-gray-400 py-[14px] pl-6 text-sm focus:border-gray-800 focus:outline-none focus:ring-0" placeholder=" " required />
+                <div className="relative mb-3 flex ">
+                  <input type="text" name="city" value={props.currentAddress.city} onChange={handleChange} id="city" className="relative max-w-40 md:max-w-full text-gray-dark border-2 peer block   appearance-none rounded-md  border-gray-400 py-[14px] text-sm focus:border-gray-800 focus:outline-none focus:ring-0" placeholder=" " required />
                   <label htmlFor="city" className="absolute  top-4 left-6 text-gray-middle  duration-200 transform -translate-y-4 text-[10px] transparent peer-placeholder-shown:text-sm  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-4 peer-focus:px-[4px] peer-focus:text-[10px] peer-focus:text-gray-500 text-gray-400 ">
                     City
                   </label>
-                  <input type="text" name="state" value={props.currentAddress.state} onChange={handleChange} id="state" className="relative text-gray-dark border-2 peer block  appearance-none rounded-md  border-gray-400 py-[14px] pl-6 text-sm focus:border-gray-800 focus:outline-none focus:ring-0" placeholder=" " required />
+                  <input type="text" name="state" value={props.currentAddress.state} onChange={handleChange} id="state" className="relative max-w-40 md:max-w-full text-gray-dark border-2 peer block  appearance-none rounded-md  border-gray-400 py-[14px]  text-sm focus:border-gray-800 focus:outline-none focus:ring-0" placeholder=" " required />
                   <label htmlFor="state" className="absolute  top-4 left-60 text-gray-middle  duration-200 transform -translate-y-4 text-[10px] transparent peer-placeholder-shown:text-sm  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-4 peer-focus:px-[4px] peer-focus:text-[10px] peer-focus:text-gray-500 text-gray-400 ">
                     State
                   </label>

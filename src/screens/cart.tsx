@@ -130,20 +130,17 @@ function Cart() {
       </div>
       ) : (
         <>
-          <div className="flex-row md:flex md:overflow-x-auto   mx-auto  w-full bg-gray-100">
-            <div className="p-6 max-w-2xl md:max-w-full mx-auto w-full  ">
-              <h2 className="text-xl uppercase font-semibold text-black mt-10 md:mt-1 ps-4  pb-4">cart</h2>
+          <div className="flex-row md:flex md:overflow-x-auto    mx-auto  w-full bg-gray-100">
+            <div className="p-2 md:p-6  md:max-w-full  mx-auto w-full  ">
+              <h2 className="text-xl uppercase   sm:justify-start flex justify-center font-semibold text-black mt-10 md:mt-1 ps-4  pb-4">cart</h2>
 
-              <div className="relative shadow-md sm:rounded-lg">
+              <div className="relative shadow-md sm:rounded-lg ">
                 <table className="w-full mt-6 md:mt-2 text-sm text-left rtl:text-right text-gray-500 ">
                   <thead className="text-xs text-gray-700 uppercase  text-opacity-100 bg-opacity-50 border-b-[1px] border-gray-200">
                     <tr>
-                      <th scope="col" className="px-16 py-3">
+                      <th scope="col" className="md:px-16 px-10 py-3">
                         Product
                       </th>
-                      {/* <th scope="col" className="px-6 py-3">
-                        Product
-                      </th> */}
                       <th scope="col" className="px-12 py-3">
                         Qty
                       </th>
@@ -156,9 +153,9 @@ function Cart() {
                     {cartItems.map((item: any) => {
                       return (
                         <tr className="  ">
-                          <td className="p-4 flex">
+                          <td className="p-2 flex">
                             <img src={item.productImage} className="w-16 md:w-32 object-contain h-16 md:h-32 max-w-full max-h-full" alt={item.productName} />
-                            <div className="">
+                            <div className="relative">
                               <h3 className=" text-gray-700">{item.productName} </h3>
                               <p className="mt-1 text-gray-600 text-sm">
                                 Size: <span className="text-xs font-semibold">{item.size}</span>
@@ -173,7 +170,7 @@ function Cart() {
                           </td>
                           <td className=" py-4">
                             <div className="flex items-center">
-                              <button onClick={() => handleRemove(item.productEntryId)} className="inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200" type="button">
+                              <button onClick={() => handleRemove(item.productEntryId)} className="inline-flex items-center justify-center p-1 me-1 md:me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200" type="button">
                                 <span className="sr-only">Quantity button</span>
                                 <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
@@ -182,7 +179,7 @@ function Cart() {
                               <div>
                                 <input type="number" id={item.productEntryId} value={item.quantity} className="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block px-2.5 py-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" placeholder="1" required />
                               </div>
-                              <button onClick={() => handleAdd(item.productEntryId)} className="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200" type="button">
+                              <button onClick={() => handleAdd(item.productEntryId)} className="inline-flex items-center justify-center h-6 w-6 p-1 ms-1 md:ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200" type="button">
                                 <span className="sr-only">Quantity button</span>
                                 <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                   <path stroke="currentColor" stroke-licnecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
@@ -191,7 +188,7 @@ function Cart() {
                             </div>
                           </td>
                           <td className="px-6 py-4 font-semibold text-sm text-gray-500">${item.discountedPrice.toFixed(2)}</td>
-                          <td className="px-6 py-4"></td>
+                          
                         </tr>
                       );
                     })}
@@ -199,7 +196,7 @@ function Cart() {
                 </table>
               </div>
               <div className="pt-4 flex">
-                <div className="relative flex h-10 w-full min-w-[100px] max-w-[18rem] pt">
+                <div className="relative  md:mx-0 mx-auto h-10 w-full min-w-[100px] max-w-[18rem] pt">
                   <button onClick={() => handleCoupon(userCoupon)} className="!absolute right-1 top-1 z-10 select-none rounded bg-gray-500 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-500/20 transition-all hover:shadow-lg hover:shadow-gray-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none peer-placeholder-shown:pointer-events-none peer-placeholder-shown:bg-gray-500 peer-placeholder-shown:opacity-50 peer-placeholder-shown:shadow-none" type="button" data-ripple-light="true">
                     Apply
                   </button>
@@ -208,19 +205,16 @@ function Cart() {
                     Coupon Code
                   </label>
                 </div>
-                {coupon ? (
-                  <p className="text-sm font-mono text-gray-500 max-w-[16rem] ps-4">
-                    use <span className="text-gray-800">{coupon?.code}</span> to {coupon?.desc}
-                  </p>
-                ) : null}
               </div>
-              {coupon ? (  <DialogDefault allCoupons={allCoupons}/>) : null}
+              {coupon ? (<div className="flex"><DialogDefault allCoupons={allCoupons}/></div>  ) : null}
              
               <p className="text-[14px] pt-1 ps-1 text-red-600">{couponError}</p>
             </div>
             <div className="  lg:h-screen md:max-w-[350px] me-5 w-full h-full lg:sticky sm:relative absolute   ">
               <div className="container bg-gray-200 md:rounded-lg shadow-md  relative md:top-24 mx-auto  w-[100%] h-[50%]">
-                <h2 className="text-[20px] uppercase  text-black sm:mt-4  md:pt-6 md:pb-6 md:ps-6 border-b border-black/10 ">Order Summary</h2>
+                <div className="flex">
+                <h2 className="text-[20px] uppercase  text-black sm:mt-4  md:pt-6 md:pb-6 md:ps-6 border-b border-black/10  md:mx-0 mx-auto">Order Summary</h2>
+                </div>
                 <div className="p-12">
                   <h3 className="flex flex-wrap gap-4 text-base text-[#333] uppercase font-medium">
                     Subtotal <span className="ml-auto">${total.toFixed(2)}</span>

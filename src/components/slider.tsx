@@ -4,7 +4,7 @@ import { Slider as BaseSlider, sliderClasses } from '@mui/base/Slider';
 
 export default function LabeledValuesSlider(props: any) {
     const rangeSelector = (newValue:any) => { 
-    props.setValue(newValue); 
+    props.setValue(newValue.target.value); 
   }; 
   return (
     <Box sx={{ width: 250 }}>

@@ -147,7 +147,7 @@ function Home() {
                   <img src="/figures.png" alt="Collection of four insulated travel bottles on wooden shelf." className="h-full w-full object-cover object-center" />
                 </div>
                 <h3 className="mt-6 text-sm text-gray-500">
-                  <p onClick={() => navigate(`/shop/?category=Figurines`)}>
+                  <p onClick={() => navigate(`/shop/?category=Figurine`)}>
                     <span className="absolute inset-0"></span>
                     Weeb Haven Figurines
                   </p>
